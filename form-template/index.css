@@ -1,0 +1,30 @@
+form {
+    width: 320px;
+    margin: auto;
+    accent-color: red;
+}
+
+form dd,
+.buttons {
+    display: flex;
+}
+
+form .default-width dd>*,
+select {
+    flex-grow: 1;
+}
+
+form .fixed-width dd,
+.buttons,
+.number {
+    justify-content: flex-end;
+}
+
+form .fixed-width .color {
+    margin: 0;
+    justify-content: center;
+}
+
+#range {
+    width: 320px;
+}
