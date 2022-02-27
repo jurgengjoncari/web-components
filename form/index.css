@@ -1,7 +1,6 @@
 form {
     width: 320px;
     margin: auto;
-    accent-color: red;
 }
 
 form dd,
@@ -26,5 +25,6 @@ form .fixed-width .color {
 }
 
 #range {
-    width: 320px;
+    /* width: 320px; */
+    
 }
