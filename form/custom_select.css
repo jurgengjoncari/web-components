@@ -1,0 +1,67 @@
+/* Basic functionality */
+
+.select {
+    /* This will create a positioning context for the list of options;
+    adding this to .select:focus-within will be a better option when fully supported
+    */
+    position: relative;
+    /* This will make our control become part of the text flow and sizable at the same time */
+    display: inline-block;
+}
+
+.select .active,
+.select:focus {
+    outline: none;
+    border: 2px solid black;
+}
+
+/* LIST OF OPTIONS */
+
+/* The .select selector here helps to make we only select
+   element inside our control. */
+.select .optList {
+    /* This will make sure our list of options will be displayed below the value
+     and out of the HTML flow */
+    position: absolute;
+    top: 100%;
+    left: 0;
+}
+
+.select .optList.hidden {
+    max-height: 0;
+    visibility: hidden;
+}
+
+/* Beautification */
+.select {
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid gray;
+}
+
+/* Styling the list of options */
+.select .optList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+    max-height: 10em;
+    overflow-y: auto;
+    width: max-content;
+    z-index: 1;
+
+    border: 1px solid gray;
+    box-shadow: 0 .2em .4em rgba(0, 0, 0, .4);
+    background-color: white;
+}
+
+.select .option {
+    padding: 10px;
+}
+
+.select .highlight {
+    background-color: rgba(0, 0, 0, .05);
+}
+

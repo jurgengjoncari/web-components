@@ -5,10 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="custom_select.css">
+    <title>Form</title>
+    <base href="">
 </head>
 <body>
-    <base href="">
     <form action="http://httpbin.org/post" method="post">
         <fieldset><legend>Fixed width</legend>            
             <dl class="default-width">
@@ -32,22 +33,26 @@
                 <dd>
                     <input type="password" id="password" placeholder="*********" name="password">
                 </dd>
-                <dt>Some large text: </dt>
+                <dt><label for="textarea">Some large text: </label></dt>
                 <dd>
                     <textarea name="textarea" id="textarea">Some initial text</textarea>
                 </dd>
+                <dt>
+                    <label for="search">Search: </label>
+                </dt>
+                <dd>
+                    <input type="search">
+                </dd>
+                <dt><label for="month">Month: </label></dt>
+                <dd><input type="month" name="month" id="month"></dd>
             </dl>
         </fieldset>
         <fieldset><legend>Fixed width</legend>            
             <dl class="fixed-width">
-                <dt>
-                    <label for="date">Date: </label>
-                </dt>
-                <dd><input type="date" id="date" placeholder="01/01/1996" name="date"></dd>
+                <dt><label for="date">Date: </label></dt>
+                <dd><input type="date" id="date" name="date"></dd>
                 <dt><label for="datetime">Datetime-local: </label></dt>
                 <dd><input type="datetime-local" name="datetime" id="datetime"></dd>
-                <dt><label for="month">Month: </label></dt>
-                <dd><input type="month" name="month" id="month"></dd>
                 <dt><label for="time">Time: </label></dt>
                 <dd><input type="time" name="time" id="time"></dd>
                 <dt><label for="week">Week: </label></dt>
@@ -59,73 +64,86 @@
                 </dt>
                 <dd>
                     <input type="range" id="range" name="range" min="50000" max="250000" step="100" oninput="setrange()">
-                    <output class="range-output" for="range"></output>
                 </dd>
+                <dt><label for="progress">Progress: </label></dt>
+                <dd><progress id="progress"></dd>
+                <dt><label for="meter">Meter: </label></dt>
+                <dd><meter id="meter"></dd>
             </dl>
         </fieldset>
-        <fieldset><legend>Radio select</legend>            
-            <div>
-                <label for="child">
+        <fieldset class="radio-list"><legend>Radio select</legend>            
+            <ul>
+                <li>
                     <input type="radio" name="ticket-type" id="child" value="child">
-                    Child
-                </label>
-            </div>
-            <div>
-                <input type="radio" name="ticket-type" id="adult" value="adult">
-                <label for="adult">Adult</label>
-            </div>
-            <div>
-                <input type="radio" name="ticket-type" id="senior" value="senior">
-                <label for="senior">Senior</label>
-            </div>
+                    <label for="child">Child</label>
+                </li>
+                <li>
+                    <input type="radio" name="ticket-type" id="adult" value="adult">
+                    <label for="adult">Adult</label>
+                </li>
+                <li>
+                    <input type="radio" name="ticket-type" id="senior" value="senior">
+                    <label for="senior">Senior</label>
+                </li>
+            </ul>
         </fieldset>
-        <fieldset><legend>Checkbox list</legend>            
-            <div>
-                <label for="carrots">
+        <fieldset class="checkbox-list"><legend>Checkbox list</legend>            
+            <ul>
+                <li>
                     <input type="checkbox" id="carrots" name="vegetable" value="carrots">
-                    Carrots
-                </label>
-            </div>
-            <div>
-                <label for="peas">
+                    <label for="carrots">Carrots</label>
+                </li>
+                <li>
                     <input type="checkbox" id="peas" name="vegetable" value="peas">
-                    Peas
-                </label>
-            </div>
-            <div>
-                <label for="cabbage">
+                    <label for="peas">Peas</label>
+                </li>
+                <li>
                     <input type="checkbox" id="cabbage" name="vegetable" value="cabbage">
-                    Cabbage
-                </label>
-            </div>
+                    <label for="cabbage">Cabbage</label>
+                </li>
+            </ul>
         </fieldset>
-        <fieldset><legend>Relative width</legend>            
-            <dl class="relative-width">
-                <dt><label for="car">Select: </label></dt>
+        <fieldset><legend>Relative width</legend>
+            <dl class="no-widget">
+                <dt><label for="regular-select">Regular Select</label></dt>
                 <dd>
-                    <select name="car" id="car">
-                        <option value="mercedes">Mercedes</option>
-                        <option value="tesla">Tesla</option>
-                        <option value="volvo" selected>Volvo</option>
-                        <option value="bmw">BMW</option>
-                        <option value="mini">Mini</option>
-                        <option value="ford">Ford</option>
+                    <select id="regular-select" name="myFruit">
+                        <option>Cherry</option>
+                        <option>Lemon</option>
+                        <option>Banana</option>
+                        <option>Strawberry</option>
+                        <option>Apple</option>
                     </select>
                 </dd>
+                <dt><label for="custom-select">Custom Select</label></dt>
+                <dd class="select" tabindex="0">
+                    <span id="custom-select" class="value">Cherry</span>
+                    <ul class="optList hidden" >
+                        <li class="option">Cherry</li>
+                        <li class="option">Lemon</li>
+                        <li class="option">Banana</li>
+                        <li class="option">Strawberry</li>
+                        <li class="option">Apple</li>
+                    </ul>
+                </dd>
+            </dl>
+            <dl class="relative-width">
                 <dt><label for="fashion">Grouped select: </label></dt>
                 <dd>
-                    <select name="fashion" id="fashon">
-                        <optgroup label="clothing" id="clothing">
-                            <option value="t_shirt">T-Shirt</option>
-                            <option value="sweater">Sweaters</option>
-                            <option value="coats">Coats</option>
-                        </optgroup>
-                        <optgroup label="Foot Wear" id="footWear">
-                            <option value="sneakers">Sneakers</option>
-                            <option value="boots">Boots</option>
-                            <option value="sandals">Sandals</option>
-                        </optgroup>
-                    </select>
+                    <div class="select-wrapper">
+                        <select name="fashion" id="fashion">
+                            <optgroup label="clothing" id="clothing">
+                                <option value="t-shirt">T-Shirt</option>
+                                <option value="sweater">Sweaters</option>
+                                <option value="coats">Coats</option>
+                            </optgroup>
+                            <optgroup label="Foot Wear" id="footWear">
+                                <option value="sneakers">Sneakers</option>
+                                <option value="boots">Boots</option>
+                                <option value="sandals">Sandals</option>
+                            </optgroup>
+                        </select>
+                    </div>
                 </dd>
                 <dt><label for="amount">Number within a range: </label></dt>
                 <dd class="number">
@@ -134,7 +152,7 @@
             </dl>
         </fieldset>
         <div>
-            <input type="file" name="file" id="file" acceps="image/*" multiple>
+            <input type="file" name="file" id="file" accept="image/*" multiple>
             <!-- <input type="image" alt="Click me" src="./Screenshot (12).png" width="80" height="30"> -->
             <div class="buttons">
                 <button type="submit">Submit</button>
@@ -172,6 +190,7 @@
         const button = document.querySelector('button')
         button.onclick = (e) => {e.target.style.backgroundColor = 'cyan'};
     </script> -->
+    <script src="custom_select.js"></script>
     <script>
         const range = document.querySelector('#range')
         const output = document.querySelector(".range-output")

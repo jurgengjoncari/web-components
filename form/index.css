@@ -1,30 +1,173 @@
+/* Browser's default styles */
+body {
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: 1.5em;
+}
+
+/* The good 
+<form><fieldset>and <legend>Single-line text <input>s (e.g. type text, url, email...),
+except for <input type="search">. Multi-line <textarea>s Buttons (both <input> and <button>s) <label><output>
+*/
+
 form {
-    width: 320px;
-    margin: auto;
+    max-width: 80ch;
+    min-width: 320px;
 }
 
-form dd,
-.buttons {
+button,
+input,
+select,
+textarea,
+input[type="file"]::-webkit-file-upload-button,
+meter,
+label {
+    font-family: inherit;
+    font-size: 100%;
+
+    box-sizing: border-box;
+    padding: 10px;
+    height: 44px;
+    flex: 1;
+    background: none;
+}
+
+label {
+    display: inline-block;
+    line-height: 2.75;
+    padding: 0;
+}
+
+textarea {
+    display: block;
+    overflow: auto;
+}
+
+/* The bad 
+Checkboxes and radio buttons <input type="search">
+*/
+
+form ul {
+    list-style-type: none;
+    padding-inline-start: 0;
+}
+
+ul label {
+    position: relative;
+}
+
+form ul li {
     display: flex;
+    align-items: baseline;
 }
 
-form .default-width dd>*,
+input[type="checkbox"], input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    flex-basis: 1em;
+    flex-grow: 0;
+    width: 1em;
+    height: 1em;
+    position: relative;
+    border: 1px solid gray;
+    padding: 0;
+    margin: 0 12px;
+}
+
+input[type="radio"] {
+    border-radius: 50%;
+}
+
+input[type="checkbox"]::before {
+    content: "✔";
+    position: absolute;
+    top: -7px;
+    left: 0;
+}
+
+input[type="radio"]::before {
+    content: " ";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background-color: red;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+input[type="checkbox"]::before, input[type="radio"]::before {
+    display: inline-block;
+    font-size: 1.5em;
+    visibility: hidden;
+    text-align: start;
+}
+
+input[type="checkbox"]:checked::before,
+input[type="radio"]:checked::before {
+    visibility: visible;
+}
+
+input[type="checkbox"]:disabled {
+    border-color: black;
+    background: #ddd;
+    color: gray;
+}
+
+/* The ugly 
+Elements involved in creating dropdown widgets,
+including <select>,
+<option>,
+<optgroup>and <datalist>. <input type="color">Date-related controls such as <input type="datetime-local"><input type="range"><input type="file"><progress>and <meter>
+*/
 select {
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.select-wrapper {
+    position: relative;
+    display: flex;
     flex-grow: 1;
 }
 
-form .fixed-width dd,
-.buttons,
-.number {
-    justify-content: flex-end;
+.select-wrapper::after {
+    content: "▼";
+    font-size: 1rem;
+
+    position: absolute;
+    right: 15px;
+    align-self: center;
 }
 
-form .fixed-width .color {
-    margin: 0;
-    justify-content: center;
+input[type=date], 
+input[type=datetime-local], 
+input[type=time],
+input[type=number] {
+    text-align: end;
 }
 
-#range {
-    /* width: 320px; */
-    
+input[type=time], input[type=number] {
+    flex-grow: 0;
+    flex-basis: 50%;
+
+    margin-left: auto;
+}
+
+input[type="range"] {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: red;
+    height: 2px;
+    padding: 0;
+outline: 1px solid black            ;
+}
+
+/* My personal input */
+dt {
+    font-weight: 600;
+}
+
+form dd {
+    display: flex;
 }
