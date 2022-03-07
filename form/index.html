@@ -13,38 +13,48 @@
     <form action="http://httpbin.org/post" method="post">
         <fieldset><legend>Fixed width</legend>            
             <dl class="default-width">
-                <dt><label for="text">Text:</label></dt>
-                <dd><input type="text" id="text" placeholder="Text..." name="text"></dd>
-                <dt>
-                    <label for="number">Number: </label>
-                </dt>
-                <dd>
-                    <input type="number" id="number" placeholder="123" name="number">
-                </dd>
-                <dt>
-                    <label for="email">Email: </label>
-                </dt>
-                <dd>
-                    <input type="email" id="email" placeholder="bob.smith@email.com" name="email">
-                </dd>
-                <dt>
-                    <label for="password">Password: </label>
-                </dt>
-                <dd>
-                    <input type="password" id="password" placeholder="*********" name="password">
-                </dd>
-                <dt><label for="textarea">Some large text: </label></dt>
-                <dd>
-                    <textarea name="textarea" id="textarea">Some initial text</textarea>
-                </dd>
-                <dt>
-                    <label for="search">Search: </label>
-                </dt>
-                <dd>
-                    <input type="search">
-                </dd>
-                <dt><label for="month">Month: </label></dt>
-                <dd><input type="month" name="month" id="month"></dd>
+                <li>
+                    <dt><label for="text">Text:</label></dt>
+                    <dd><input type="text" id="text" placeholder="Text..." name="text"></dd>
+                </li>
+                <li>
+                    <dt><label for="number">Number: </label></dt>
+                    <dd><input type="number" id="number" placeholder="123" name="number"></dd>
+                </li>
+                <li>
+                    <dt>
+                        <label for="email">Email: </label>
+                    </dt>
+                    <dd>
+                        <input type="email" id="email" placeholder="bob.smith@email.com" name="email">
+                    </dd>
+                </li>
+                <li>
+                    <dt>
+                        <label for="password">Password: </label>
+                    </dt>
+                    <dd>
+                        <input type="password" id="password" placeholder="*********" name="password">
+                    </dd>
+                </li>
+                <li>
+                    <dt><label for="textarea">Some large text: </label></dt>
+                    <dd>
+                        <textarea name="textarea" id="textarea" rows="3">Some initial text</textarea>
+                    </dd>
+                </li>
+                <li>
+                    <dt>
+                        <label for="search">Search: </label>
+                    </dt>
+                    <dd>
+                        <input type="search">
+                    </dd>
+                </li>
+                <li>
+                    <dt><label for="month">Month: </label></dt>
+                    <dd><input type="month" name="month" id="month"></dd>
+                </li>
             </dl>
         </fieldset>
         <fieldset><legend>Fixed width</legend>            
@@ -65,10 +75,6 @@
                 <dd>
                     <input type="range" id="range" name="range" min="50000" max="250000" step="100" oninput="setrange()">
                 </dd>
-                <dt><label for="progress">Progress: </label></dt>
-                <dd><progress id="progress"></dd>
-                <dt><label for="meter">Meter: </label></dt>
-                <dd><meter id="meter"></dd>
             </dl>
         </fieldset>
         <fieldset class="radio-list"><legend>Radio select</legend>            
@@ -154,11 +160,9 @@
         <div>
             <input type="file" name="file" id="file" accept="image/*" multiple>
             <!-- <input type="image" alt="Click me" src="./Screenshot (12).png" width="80" height="30"> -->
-            <div class="buttons">
-                <button type="submit">Submit</button>
-                <button type="reset">Reset</button>
-            </div>
         </div>
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
     </form>
     <!-- <script>
         let body = document.querySelector('body')
