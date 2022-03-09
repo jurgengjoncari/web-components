@@ -1,4 +1,4 @@
-/* Browser's default styles */
+/* Browser's default styles and accessibility */
 body {
     margin: 0;
 
@@ -9,32 +9,18 @@ body {
 
 dl li {
     list-style-type: none;
-    /* margin-inline-end: 10px; */
 }
 
-dl, form ul {
-    margin-inline-start: 10px;
-    margin-inline-end: 10px;
-}
-
-dl dd {
-    margin-inline-start: 44px;
+form {
+    max-width: 80ch;
+    min-width: 320px;
+    padding: 8px;
 }
 
 /* The good 
 <form><fieldset>and <legend>Single-line text <input>s (e.g. type text, url, email...),
 except for <input type="search">. Multi-line <textarea>s Buttons (both <input> and <button>s) <label><output>
 */
-
-fieldset {
-    margin: 8px;
-    padding: 8px;
-}
-
-form {
-    max-width: 80ch;
-    min-width: 320px;
-}
 
 button,
 input,
@@ -88,8 +74,6 @@ form ul li {
 }
 
 input[type="checkbox"], input[type="radio"] {
-    appearance: none;
-    -webkit-appearance: none;
     flex-basis: 1em;
     flex-grow: 0;
     width: 1em;
@@ -100,44 +84,14 @@ input[type="checkbox"], input[type="radio"] {
     margin: 0 14px;
 }
 
+input[type="checkbox"] {
+    appearance: checkbox;
+    -webkit-appearance: checkbox;
+}
+
 input[type="radio"] {
-    border-radius: 50%;
-}
-
-input[type="checkbox"]::before {
-    content: "✔";
-    position: absolute;
-    top: -7px;
-    left: 0;
-}
-
-input[type="radio"]::before {
-    content: " ";
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    background-color: red;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-}
-
-input[type="checkbox"]::before, input[type="radio"]::before {
-    display: inline-block;
-    font-size: 1.5em;
-    visibility: hidden;
-    text-align: start;
-}
-
-input[type="checkbox"]:checked::before,
-input[type="radio"]:checked::before {
-    visibility: visible;
-}
-
-input[type="checkbox"]:disabled {
-    border-color: black;
-    background: #ddd;
-    color: gray;
+    appearance: radio;
+    -webkit-appearance: radio;
 }
 
 /* The ugly 
@@ -146,24 +100,15 @@ including <select>,
 <option>,
 <optgroup>and <datalist>. <input type="color">Date-related controls such as <input type="datetime-local"><input type="range"><input type="file"><progress>and <meter>
 */
-select {
-    appearance: none;
+/* select {
+    appearance: auto;
     -webkit-appearance: none;
-}
+} */
 
 .select-wrapper {
     position: relative;
     display: flex;
     flex-grow: 1;
-}
-
-.select-wrapper::after {
-    content: "▼";
-    font-size: 1rem;
-
-    position: absolute;
-    right: 15px;
-    align-self: center;
 }
 
 input[type=date], 
@@ -176,12 +121,10 @@ input[type=number] {
 input[type=time], input[type=number] {
     flex-grow: 0;
     flex-basis: 50%;
-
-    margin-left: auto;
 }
 
 input[type="color"] {
-    flex-basis: 255px;
+    flex-basis: 50%;
     flex-grow: 0;
     border: 0;
     outline: 0;
@@ -198,7 +141,7 @@ input[type="file"] {
 input[type="range"] {
     outline: 1px solid gray;
 
-    flex-basis: 255px;
+    flex-basis: 50%;
     flex-grow: 0;
 
     height: 2px;
@@ -207,6 +150,10 @@ input[type="range"] {
 }
 
 /* My personal input */
+dl dd {
+    margin-inline-start: 44px;
+}
+
 dt {
     font-weight: 600;
 }
@@ -217,9 +164,4 @@ form dd {
 
 form {
     position: relative;
-}
-
-button {
-    position: relative;
-    right: 0;
 }
