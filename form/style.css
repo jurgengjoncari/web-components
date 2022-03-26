@@ -12,6 +12,7 @@ select,
 textarea,
 input[type="file"]::-webkit-file-upload-button {
     font-family: inherit;
+    letter-spacing: inherit;
     font-size: 100%;
 
     box-sizing: border-box;
@@ -27,8 +28,7 @@ label {
 }
 
 textarea {
-    /* display: block; */
-    /* overflow: auto; */
+    overflow: auto;
     min-height: 6em;
 }
 
@@ -105,11 +105,3 @@ input[type="range"] {
     margin-block: 20px;
 }
 
-/* My personal input */
-dl dd {
-    margin-inline-start: 44px;
-}
-
-dt {
-    font-weight: 600;
-}
