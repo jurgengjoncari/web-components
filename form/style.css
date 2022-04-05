@@ -14,9 +14,8 @@ input[type="file"]::-webkit-file-upload-button {
     font-family: inherit;
     letter-spacing: inherit;
     font-size: 100%;
+    color: inherit;
 
-    box-sizing: border-box;
-    padding: 10px;
     height: 44px;
     background: none;
     border: 1px solid gray;
@@ -90,11 +89,6 @@ input[type="file"] {
 }
 
 input[type="range"] {
-    outline: 1px solid gray;
-
-    flex-basis: 50%;
-    flex-grow: 0;
-
     height: 2px;
     padding: 0;
     margin-block: 20px;
