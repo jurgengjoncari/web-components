@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="custom_select.css">
+    <link rel="stylesheet" href="custom-select/custom_select.css">
     <title>Form</title>
     <base href="">
 </head>
@@ -48,7 +48,7 @@
                         <label for="search">Search: </label>
                     </dt>
                     <dd>
-                        <input type="search">
+                        <input id="search" type="search">
                     </dd>
                 </li>
                 <li>
@@ -73,7 +73,7 @@
                     <label for="range">Choose a range: </label>
                 </dt>
                 <dd>
-                    <input type="range" id="range" name="range" min="50000" max="250000" step="100" oninput="setrange()">
+                    <input type="range" id="range" name="range" min="50000" max="250000" step="100" oninput="setRange()">
                 </dd>
             </dl>
         </fieldset>
@@ -194,18 +194,18 @@
         const button = document.querySelector('button')
         button.onclick = (e) => {e.target.style.backgroundColor = 'cyan'};
     </script> -->
-    <script src="custom_select.js"></script>
+    <script type="module" src="custom-select/custom_select.js"></script>
     <script>
         const range = document.querySelector('#range')
         const output = document.querySelector(".range-output")
 
         // output.textContent = range.value;
 
-        function setrange() {
+        function setRange() {
             output.textContent = range.value;
         }
 
-        setrange()
+        setRange()
     </script>
 </body>
 </html>

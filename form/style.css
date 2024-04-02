@@ -9,16 +9,15 @@ except for <input type="search">. Multi-line <textarea>s Buttons (both <input> a
 button,
 input,
 select,
-textarea,
 input[type="file"]::-webkit-file-upload-button {
     font-family: inherit;
     letter-spacing: inherit;
     font-size: 100%;
     color: inherit;
 
-    height: 44px;
+    height: 30px;
     background: none;
-    border: 1px solid gray;
+    border: 1px solid rgb(128, 128, 128);
 }
 
 label {
@@ -40,12 +39,12 @@ ul label {
 }
 
 input[type="checkbox"] {
-    appearance: checkbox;
+    /*appearance: checkbox;*/
     -webkit-appearance: checkbox;
 }
 
 input[type="radio"] {
-    appearance: radio;
+    /*appearance: radio;*/
     -webkit-appearance: radio;
 }
 
