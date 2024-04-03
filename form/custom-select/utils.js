@@ -1,14 +1,11 @@
-export {
-    deactivateSelect,
-    activeSelect,
-    toggleOptList,
-    highlightOption,
-    updateValue,
-    getIndex
-}
+// export {
+//     highlightOption,
+//     updateValue,
+//     getIndex
+// }
 
 // Event callbacks
-function deactivateSelect(select) {
+export function deactivateSelect(select) {
 
     // If the control is not active there is nothing to do
     if (!select.classList.contains('active')) return;
@@ -23,36 +20,36 @@ function deactivateSelect(select) {
     select.classList.remove('active');
 }
 
-function activeSelect(select , selectList) {
+export function activeSelect(select , selectList) {
     if (select.classList.contains('active')) return;
     selectList.forEach(deactivateSelect)
     select.classList.add('active')
 }
 
-function toggleOptList(select) {
+export function toggleOptList(select) {
     const OPT_LIST = select.querySelector('.optList');
     OPT_LIST.classList.toggle('hidden')
 }
 
-function highlightOption(select, option) {
-    const OPTION_LIST = select.querySelectorAll('.option');
-    OPTION_LIST.forEach(function(other) {
-        other.classList.remove('highlight')
-    })
+export function highlightOption(option) {
     option.classList.add('highlight')
 }
 
-// Handling control's value
-function updateValue(select, index) {
-    const NATIVE_WIDGET = select.previousElementSibling;
-    const VALUE = select.querySelector('.value');
-    const OPTION_LIST = select.querySelectorAll('.option');
-    NATIVE_WIDGET.selectedIndex = index
-    VALUE.innerHTML = OPTION_LIST[index].innerHTML
-    highlightOption(select, OPTION_LIST[index])
+export function removeHighlight(option) {
+    option.classList.remove('highlight')
 }
 
-function getIndex(select) {
+// Handling control's value
+export function updateValue(select, option) {
+    // const NATIVE_WIDGET = select.previousElementSibling;
+    const VALUE = select.querySelector('.value');
+    // const OPTION_LIST = select.querySelectorAll('.option');
+    // NATIVE_WIDGET.selectedIndex = index
+    VALUE.innerHTML = option.innerHTML
+    // highlightOption(select, OPTION_LIST[index])
+}
+
+export function getIndex(select) {
     const NATIVE_WIDGET = select.previousElementSibling;
     return NATIVE_WIDGET.selectedIndex
 }
