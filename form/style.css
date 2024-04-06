@@ -1,6 +1,11 @@
 dl li {
     list-style-type: none;
 }
+
+form {
+    max-width: 85ch;
+}
+
 /* The good 
 <form><fieldset>and <legend>Single-line text <input>s (e.g. type text, url, email...),
 except for <input type="search">. Multi-line <textarea>s Buttons (both <input> and <button>s) <label><output>
@@ -18,6 +23,11 @@ input[type="file"]::-webkit-file-upload-button {
     height: 30px;
     background: none;
     border: 1px solid rgb(128, 128, 128);
+    max-width: 85ch;
+}
+
+button, input[type="file"] {
+    width: fit-content;
 }
 
 label {
